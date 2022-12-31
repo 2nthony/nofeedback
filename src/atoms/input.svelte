@@ -7,5 +7,5 @@
 <input
   {...$$props}
   bind:value
-  class={`border border-gray-200 hover:border-gray-300 focus:border-gray-400 focus:outline-none p-2 rounded text-sm text-gray-700 ${className}`}
+  class={`border border-gray-200 hover:border-gray-300 focus:border-gray-400 focus:outline-none p-2 rounded text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-300 ${className}`}
 />
