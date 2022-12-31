@@ -3,7 +3,7 @@
   import Form from "./components/form.svelte";
 </script>
 
-<main>
+<main class="px-0.5">
   <Form />
 
   <p class="mt-4 text-center">
