@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input {
+  @apply border border-gray-500 focus:outline-none p-2 rounded text-sm text-gray-500 bg-transparent;
+}
