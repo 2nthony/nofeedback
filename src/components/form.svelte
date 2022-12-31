@@ -12,7 +12,7 @@
     content: "",
   };
 
-  $: disabled = !(formValue.name && formValue.content);
+  $: disabled = sending || !(formValue.name && formValue.content);
 
   async function handleSend() {
     sending = true;
