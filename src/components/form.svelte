@@ -3,7 +3,6 @@
   import Input from "../atoms/input.svelte";
   import Label from "../atoms/label.svelte";
   import Textarea from "../atoms/textarea.svelte";
-  import { submitFeedback } from "../core/notion";
 
   let sent = false;
   let sending = false;
@@ -19,7 +18,9 @@
     sending = true;
 
     try {
-      await submitFeedback(formValue);
+      await fetch("/api/send", {
+        body: JSON.stringify(formValue),
+      });
       formValue = {
         name: "",
         email: "",

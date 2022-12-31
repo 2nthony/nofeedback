@@ -1,3 +1,4 @@
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import { Client } from "@notionhq/client";
 
 type FeedbackFormModel = {
@@ -6,39 +7,43 @@ type FeedbackFormModel = {
   content: string;
 };
 
-const notion = new Client({
-  auth: import.meta.env.VITE_TOKEN,
-});
+const { TOKEN, DATABASE_ID = "" } = process.env ?? {};
 
-export function submitFeedback(formValue: FeedbackFormModel) {
-  return notion.pages.create({
+const notion = new Client({ auth: TOKEN });
+
+export default async function send(req: VercelRequest, res: VercelResponse) {
+  const { name, email = "", content } = req.body as FeedbackFormModel;
+
+  const result = await notion.pages.create({
     parent: {
-      database_id: import.meta.env.VITE_DATABASE_ID,
+      database_id: DATABASE_ID,
     },
     properties: {
       Name: {
         title: [
           {
             text: {
-              content: formValue.name,
+              content: name,
             },
           },
         ],
       },
       Email: {
         type: "email",
-        email: formValue.email,
+        email,
       },
       Content: {
         type: "rich_text",
         rich_text: [
           {
             text: {
-              content: formValue.content,
+              content,
             },
           },
         ],
       },
     },
   });
+
+  res.json(result);
 }
