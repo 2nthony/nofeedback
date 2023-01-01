@@ -1,5 +1,5 @@
 <a
-  class="underline text-xs text-gray-500"
+  class="underline text-xs text-gray-500 hover:text-sky-500"
   href="https://github.com/nowidget/feedback"
   rel="noreferrer"
   target="_blank"
