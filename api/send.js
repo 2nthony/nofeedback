@@ -1,8 +1,8 @@
 import { Client } from "@notionhq/client";
 
-const { TOKEN, DATABASE_ID = "" } = process.env ?? {};
+const { NOTION_TOKEN, NOTION_DATABASE_ID = "" } = process.env ?? {};
 
-const notion = new Client({ auth: TOKEN });
+const notion = new Client({ auth: NOTION_TOKEN });
 
 export default async function send(req, res) {
   const raw = req.body;
@@ -39,7 +39,7 @@ export default async function send(req, res) {
 
   const result = await notion.pages.create({
     parent: {
-      database_id: DATABASE_ID,
+      database_id: NOTION_DATABASE_ID,
     },
     properties,
   });
