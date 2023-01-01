@@ -2,9 +2,9 @@
 
 NoFeedback is a notion form widget for collect user feedback, deploy and hosted on Vercel.
 
-## Features, Docs and Demo
+## Docs all in one notion page
 
-<a href="https://2nthony.notion.site/NoFeedback-Guide-850aa1f6c0a44397948c9b6598918938" target="_blank">👉 <b>See Notion page</b></a>
+[👉 **Demo, Features, Create guide, FAQs**](https://2nthony.notion.site/NoFeedback-Guide-850aa1f6c0a44397948c9b6598918938)
 
 ## Deploy your own
 
