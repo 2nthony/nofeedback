@@ -6,7 +6,7 @@
 <main class="px-0.5">
   <Form />
 
-  <p class="mt-4 text-center">
+  <p class="mt-2 text-center">
     <Copyright />
   </p>
 </main>
