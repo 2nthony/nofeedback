@@ -17,19 +17,20 @@
   async function handleSend() {
     sending = true;
 
-    try {
-      await fetch("/api/send", {
-        body: JSON.stringify(formValue),
+    fetch("/api/send", { method: "post", body: JSON.stringify(formValue) })
+      .then((res) => {
+        if (res.ok) {
+          sent = true;
+          formValue = {
+            name: "",
+            email: "",
+            content: "",
+          };
+        }
+      })
+      .finally(() => {
+        sending = false;
       });
-      formValue = {
-        name: "",
-        email: "",
-        content: "",
-      };
-      sent = true;
-    } finally {
-      sending = false;
-    }
   }
 
   function handleBackToForm() {
