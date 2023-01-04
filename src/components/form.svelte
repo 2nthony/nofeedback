@@ -17,7 +17,7 @@
   async function handleSend() {
     sending = true;
 
-    fetch("/api/send", { method: "post", body: JSON.stringify(formValue) })
+    fetch("/api/feedback", { method: "post", body: JSON.stringify(formValue) })
       .then((res) => {
         if (res.ok) {
           sent = true;
